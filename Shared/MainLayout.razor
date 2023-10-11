@@ -1,0 +1,26 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page h-screen text-gray-700 overflow-x-hidden">
+    <header class="nav border-red-400 flex justify-center items-center">
+        <NavLink class="text-red-400 hover:text-red-300 transition-colors mx-8 text-lg xl:text-2xl" href="/">Work
+        </NavLink>
+        <NavLink class="text-red-400 hover:text-red-300 transition-colors mx-8 text-lg xl:text-2xl" href="about">About
+            me</NavLink>
+    </header>
+    <main class="px-4">
+        <h1 class="text-center text-4xl md:text-5xl mt-5"></h1>
+        <article class="content relative">
+            @Body
+        </article>
+
+    </main>
+    <footer class="hidden lg:flex justify-between w-full h-6 px-2 text-sm">
+        <p>Made with
+            <Link Url="https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor" Label="Blazor" />
+        </p>
+        <p>More icons
+            created by
+            <Link Url="https://www.flaticon.com/free-icons/more" Label="Smashicons" /> - Flaticon
+        </p>
+    </footer>
+</div>

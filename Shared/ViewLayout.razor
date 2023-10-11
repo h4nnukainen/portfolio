@@ -1,0 +1,48 @@
+@inherits TransitionableLayoutComponent
+@using Portfolio.Pages
+
+<div
+    class="w-full top-8 lg:top-8 2xl:top-14 transition @transitioningClass @(Transition.IntoView ? "transitioned" : "transitioned_behind")">
+    @Body
+</div>
+
+<style>
+    .transition {
+        position: absolute;
+    }
+
+    .transitioned {
+        z-index: 1;
+    }
+
+    .transitioned_behind {
+        z-index: 0;
+    }
+</style>
+
+@code {
+
+    private string transitioningClass => Transition.FirstRender
+        ? "" : $"animate__{transitioningEffect()} animate__faster animate__animated";
+
+    private string transitioningEffect()
+    {
+        if (customTransitions.TryGetValue((TransitionType.fromType, TransitionType.toType), out var custom))
+        {
+            return Transition.IntoView ? custom.effectIn : custom.effectOut;
+        }
+        else
+        {
+            var effect = Transition.IntoView ? "fadeIn" : "fadeOut";
+            var direction = Transition.Backwards ? "Left" : "Right";
+            return effect + direction;
+        }
+    }
+
+    private Dictionary<(Type from, Type to), (string effectOut, string effectIn)> customTransitions =
+    new Dictionary<(Type from, Type to), (string effectOut, string effectIn)>
+    {
+{ (typeof(Work), typeof(About)), ( "fadeOutLeft", "fadeInRight" ) },
+{ (typeof(About), typeof(Work)), ( "fadeOutRight", "fadeInLeft" ) },
+    };
+}

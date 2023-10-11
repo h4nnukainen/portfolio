@@ -1,0 +1,28 @@
+<div @onclick="() => ParentMethod.InvokeAsync(Item.Index)"
+    class="border-x border-y border-red-400 p-4 mb-2 cursor-pointer md:hover:border-red-300 md:hover:bg-red-300 transition-colors">
+    <p class="flex text-lg">
+        <img class="mr-1" width="25px" src="/Assets/@IconUrls[(int)Item.Icon]" alt="job-icon"> @Item.Name
+    </p>
+    @if (ChosenJob != null && Item.Index == ChosenJob.Index)
+    {
+        <div class="md:hidden">
+            <GridJobDetails HideTitle="true" ChosenJob=@ChosenJob />
+        </div>
+    }
+</div>
+
+
+
+@code {
+
+    [Parameter]
+    public Job Item { get; set; }
+    [Parameter]
+    public Job ChosenJob { get; set; }
+
+    [Parameter]
+    public EventCallback<int> ParentMethod { get; set; }
+
+    private string[] IconUrls = new string[4] { "server.png", "layers.png", "more.png", "smartphone.png" };
+
+}

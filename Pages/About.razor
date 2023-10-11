@@ -1,0 +1,22 @@
+@page "/about"
+
+<GridTemplate SubHeader="About me" LeftUp=@(false)>
+    <Col1>
+        @if (Image != "")
+        {
+            <GridImage URI=@Image />
+        }
+    </Col1>
+
+
+    <Col2>
+        <GridTextContent />
+    </Col2>
+
+
+</GridTemplate>
+
+@code {
+
+    private string Image = "omakuva.jpeg";
+}

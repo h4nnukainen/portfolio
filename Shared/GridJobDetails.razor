@@ -1,0 +1,27 @@
+@if (!HideTitle)
+{
+    <h3 class="text-xl mb-2">@ChosenJob.Name</h3>
+}
+
+<p class="text-lg @(HideTitle ? "mt-4" : "my-4")">@ChosenJob.Content</p>
+
+@if (ChosenJob.Url != "")
+{
+    <div class="text-md mt-2">
+    <Link Label="Click here to go to page!" Url=@ChosenJob.Url />
+</div>
+}
+
+@if (ChosenJob.Repo != "")
+{
+    <div class="text-md mt-2">
+    <Link Label="Check out the source!" Url=@ChosenJob.Repo />
+</div>
+}
+
+@code {
+    [Parameter]
+    public Job ChosenJob { get; set; }
+    [Parameter]
+    public bool HideTitle { get; set; } = false;
+}

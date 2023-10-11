@@ -1,0 +1,23 @@
+<div class="lg:text-lg xl:text-xl 2xl:text-2xl">
+    <p class="pb-2"><em>A @year year old programmer/nerd/husband/father. Alleged funny guy who gets
+            things done. Yesterday
+            experience comes from creating a whole full stack-solution for a client by himself, and hacking up all
+            kinds of Wordpress-sites. Today mostly with Node.js, with a hint of Wordpress at side. Tomorrow? Who knows! Perhaps little bit of .NET/Node.js here and C++ there..</em></p>
+    <p class="pb-2"><em>Loves working with .NET &amp; Vue. Other fields of expertise includes (but not limited to)
+            Wordpress, Flutter, Node.js, Next.js, Angular and jQuery. Not afraid of getting hands dirty with databases nor learning new
+            things. Occasionally delves into C++ and likes to dabble with Godot.</em></p>
+    <p>---</p>
+    <p>Most of my stuff can be found at Work-tab. More can be found on my
+        <Link Url="https://github.com/h4nnukainen" Label="Github" />.
+        Feel free to contact me by
+        <Link Url="mailto:mikkohannukainen@hotmail.com" Label="mail" />. I'll try to
+        answer to your messages as soon as possible. :)
+    </p>
+</div>
+
+@code {
+    [Parameter]
+    public MarkupString Content { get; set; }
+
+    private int year = DateTime.Now.Year - 1995;
+}

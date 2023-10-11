@@ -1,0 +1,10 @@
+<a rel="noopener" target="_blank" class="link underline-offset-2 hover:link-active" href=@Url><span
+        class="hover bg-red-200"></span>@Label</a>
+
+@code {
+    [Parameter]
+    public String Label { get; set; }
+    [Parameter]
+    public String Url { get; set; }
+
+}

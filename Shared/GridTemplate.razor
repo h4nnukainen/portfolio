@@ -1,0 +1,26 @@
+<div style="max-width: 1450px;" class="md:w-3/4 mx-auto">
+    <h2 class="text-3xl mb-2">@SubHeader</h2>
+    <div class="grid grid-cols-2 gap-8">
+        <div class="col-span-2 lg:col-span-1 @(LeftUp ? "order-1" : "order-2")">
+            @Col1
+        </div>
+        <div class="col-span-2 lg:col-span-1 @(!LeftUp ? "order-1 lg:order-2" : "order-2")">
+            @Col2
+        </div>
+    </div>
+</div>
+
+@code {
+
+
+    [Parameter]
+    public string? SubHeader { get; set; }
+    [Parameter]
+    public bool LeftUp { get; set; } = true;
+    [Parameter]
+    public RenderFragment Col1 { get; set; }
+    [Parameter]
+    public RenderFragment Col2 { get; set; }
+
+
+}
