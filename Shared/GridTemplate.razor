@@ -1,7 +1,7 @@
-<div style="max-width: 1450px;" class="md:w-3/4 mx-auto">
+<div style="max-width: 1650px;" class="md:w-3/4 mx-auto">
     <h2 class="text-3xl mb-2">@SubHeader</h2>
     <div class="grid grid-cols-2 gap-8">
-        <div class="col-span-2 lg:col-span-1 @(LeftUp ? "order-1" : "order-2")">
+        <div class="col-span-2 lg:col-span-1 @(LeftUp ? "order-1" : "order-2")" style="max-height: 800px; overflow-y: auto;">
             @Col1
         </div>
         <div class="col-span-2 lg:col-span-1 @(!LeftUp ? "order-1 lg:order-2" : "order-2")">
